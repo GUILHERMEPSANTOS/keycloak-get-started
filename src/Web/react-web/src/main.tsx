@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import KeyCloakService from './security/KeycloakService.tsx';
+
+import AuthService from './security/auth/AuthService.tsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 
@@ -13,4 +14,6 @@ const renderApp = () =>
     </React.StrictMode>,
   )
 
-KeyCloakService.CallLogin(renderApp);
+AuthService
+  .create()
+  .init(renderApp);
